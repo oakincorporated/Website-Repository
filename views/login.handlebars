@@ -11,14 +11,14 @@
 		{{#if msg}}
  			<p class="msg">{{msg}}</p>
 		{{/if}}
-		<div class="loginbox">
+		<fieldset>
 		<form action="/login" method="post">
-			<p><label>Username<br><input type="text" name="user" placeholder="your username" maxlength="20" value="{{user}}" 
+			<p><label>Username<br><input type="text" name="user" placeholder="Your username" maxlength="20" value="{{user}}" 
 			autofocus oninput="this.value=this.value.toLowerCase()" required></label></p>
-			<p><label>Password<br><input type="password" name="pass" placeholder="your password" value="" required></label></p>
+			<p><label>Password<br><input type="password" name="pass" placeholder="Your password" value="" required></label></p>
 			<p><label><input type="submit" value="Log in"></label></p>
 		</form>
-		</div>
+		</fieldset>
 	</body>
 </html>
 

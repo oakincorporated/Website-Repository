@@ -1,24 +1,30 @@
 
+
 body {
 	margin: 0;
-	padding: 0;
+  padding: 0;
+  text-align: center;
 	font-family: sans-serif;
-  background: url(sky-blue.jpg);
+  background: white;
 }
   
 .msg {
-  border: 1px dashed black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  background: lightgray;
   text-align: center;
   font-weight: bold;
   color: black;
   padding: 1em;
   }
 
-.loginbox{
+fieldset {
   width: 300px;
   height: 200px;
-  color: #fff;
-  background: #000;
+  color:black;
+  text-align: center;
+  background: lightgrey;
+  border: 2px solid black;
   top: 50%;
   left: 50%;
   position: absolute;
