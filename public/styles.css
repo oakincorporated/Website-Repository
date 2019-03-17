@@ -1,22 +1,58 @@
 
-
 body {
-	margin: 0;
-  padding: 0;
   text-align: center;
 	font-family: sans-serif;
   background: white;
+} 
+
+li {
+  text-decoration: none;
 }
-  
-.msg {
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  background: lightgray;
+
+.donut_single {
+  position: center;
+
+}
+.nav ul {
+  position: relative; 
+  top: 0 px;
+  margin: 10px; 
+  padding: 10px;
+  list-style-type: none;
+  margin: 10; 
+  padding: 0; 
+  overflow: hidden;
+  background-color: lightgray;
+  border-bottom: 1px solid slategrey;
+  border-top: 1px solid slategray;
+
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  display: block;
+  color:black;
   text-align: center;
-  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  background-color: darkgrey;
+}
+
+.msg {
+  border-bottom: 1px solid black;
+  background: white;
+  text-align: center;
+  font-size: 20px;
   color: black;
   padding: 1em;
-  }
+}
+
 
 fieldset {
   width: 300px;
@@ -24,10 +60,25 @@ fieldset {
   color:black;
   text-align: center;
   background: lightgrey;
-  border: 2px solid black;
+  border: 1px solid black;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%,-50%);
   box-sizing: border-box;
-  }
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  text-justify: auto;
+  color: black;
+}
+
+image {
+  position: relative;
+  padding: 20px;
+  margin: 20px;
+}

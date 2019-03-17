@@ -3,13 +3,24 @@
 
 <html lang="en">
 	<head>
-		<link href="styles2.css" type="text/css" rel="stylesheet" />
+		<title>Home</title>
+		<link href="styles.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
-		<h1>Welcome (username of user)</h1>
-		<a href="/logout">Logout</a>
+		<div class="nav">
+			<ul>
+				<li><a href="/logout">Logout</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</div>
 		{{#if msg}}
  			<p class="msg">{{msg}}</p>
 		{{/if}}
-		<p>Please find details of your attendance below.</p>
+
+		<h3>Total Classes:</h3>
+		<h3>Present:</h3>
+		<h3>Late:</h3>
+		<h3>Absent:</h3>
+		</body>
 </html>
