@@ -26,11 +26,19 @@ const port = 8080
 
 router.get('/', async ctx => {
 	try {
-		const data = {}
+		//const data = {}
 		if(ctx.session.authorised !== true ) return ctx.redirect('/login?msg=You%20need%20to%20log%20in.')
-		if(ctx.query.msg) data.msg = ctx.query.msg
-		if(ctx.query.user) data.user = ctx.query.user
+		//if(ctx.query.msg) data.msg = ctx.query.msg
+		//if(ctx.query.user) data.user = ctx.query.user
+		
+		console.log(ctx.session.user)
+		const sqlquery = `SELECT * FROM attendance WHERE user="${ctx.session.user}";`
+		const db = await sqlite.open('./realworld.db')
+		const data = await db.get(sqlquery)
+		await db.close()
+		console.log(data)
 		await ctx.render('index', data)
+
 	} catch(err) {
 		await ctx.render('error', {message: err.message})
 	}
@@ -56,7 +64,11 @@ router.post('/login', async ctx => {
 
 		//password
 		if (body.pass!==record.pass) return ctx.redirect(`/login?user=${body.user}&msg=Invalid%20password,%20please%20try%20again.`)
+		
+		//setting cookies 
 		ctx.session.authorised = true
+		ctx.session.user = body.user
+		console.log(ctx.session.user)
 
 		//redirect to homepage
 		return ctx.redirect(`/?msg=Welcome%20${body.user}.%20You%20are%20now%20logged%20in.`)
@@ -94,7 +106,7 @@ module.exports = app.listen(port, async() => {
 	const db = await sqlite.open('./realworld.db')
 	await db.run('CREATE TABLE IF NOT EXISTS users (student_id INTEGER PRIMARY KEY, user TEXT, pass TEXT);')
 	await db.run('CREATE TABLE IF NOT EXISTS student (student_id INTEGER PRIMARY KEY, fname VARCHAR, mname VARCHAR, lname VARCHAR);')
-	await db.run('CREATE TABLE IF NOT EXISTS attendance (student_id INTEGER PRIMARY KEY, present INTEGER, late INTEGER, absent INTEGER, total_classes INT);')
+	await db.run('CREATE TABLE IF NOT EXISTS attendance (student_id INTEGER PRIMARY KEY, user TEXT, present INTEGER, late INTEGER, absent INTEGER, total_classes INT);')
 	await db.close()
 	console.log(`listening on port ${port}`)
 })
