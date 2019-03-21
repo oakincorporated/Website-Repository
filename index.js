@@ -26,17 +26,17 @@ const port = 8080
 
 router.get('/', async ctx => {
 	try {
-		//const data = {}
+		const data = {}
 		if(ctx.session.authorised !== true ) return ctx.redirect('/login?msg=You%20need%20to%20log%20in.')
-		//if(ctx.query.msg) data.msg = ctx.query.msg
-		//if(ctx.query.user) data.user = ctx.query.user
+		if(ctx.query.msg) data.msg = ctx.query.msg
+		if(ctx.query.user) data.user = ctx.query.user
 		
 		console.log(ctx.session.user)
-		const sqlquery = `SELECT * FROM attendance WHERE user="${ctx.session.user}";`
+		data.sqlquery = `SELECT * FROM attendance WHERE user="${ctx.session.user}";`
 		const db = await sqlite.open('./realworld.db')
-		const data = await db.get(sqlquery)
+		data.profiledata = await db.get(data.sqlquery)
 		await db.close()
-		console.log(data)
+		console.log(data.profiledata)
 		await ctx.render('index', data)
 
 	} catch(err) {
