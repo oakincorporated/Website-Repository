@@ -9,30 +9,30 @@
 	<body>
 		<h1>Log In</h1>
 		{{#if msg}}
- 			<p class="msg">{{msg}}</p>
+			<p class="msg">{{msg}}</p>
 		{{/if}}
 		<fieldset>
-		<form action="/login" method="post">
-			<p><label>Username<br><input type="text" name="user" placeholder="Your username" maxlength="20" value="{{user}}" 
-			autofocus oninput="this.value=this.value.toLowerCase()" required></label></p>
-			<p><label>Password<br><input type="password" name="pass" placeholder="Your password" value="" required></label></p>
-			<p><label><input type="submit" value="Log in"></label></p>
-		</form>
+			<form action="/login" method="post">
+				<p><label>Username<br><input type="text" name="user" placeholder="Your username" maxlength="20" value="{{user}}" 
+				autofocus oninput="this.value=this.value.toLowerCase()" required></label></p>
+				<p><label>Password<br><input type="password" name="pass" placeholder="Your password" value="" required></label></p>
+				<p><label><input type="submit" value="Log in"></label></p>
+			</form>
 		</fieldset>
 
 
 		<form>
-		<div style="position: absolute; bottom: 0; right: 0; text-align:right;">
-    			<input type="button" VALUE="🏠 Home"
-        		onclick="window.location.href='/login?msg=You%20need%20to%20log%20in.'"> 
-		</div>
-		</form>
-		
-		<form>
-		<div style="position: absolute; bottom: 0; left: 0; text-align:left;">
-    			<input type="button" VALUE="🛈 About"
-        		onclick="window.location.href='/about'" > 
-		</div>			
+			<div style="position: absolute; bottom: 0; right: 0; text-align:right;">
+					<input type="button" VALUE="🏠 Home"
+					onclick="window.location.href='/login?msg=You%20need%20to%20log%20in.'"> 
+			</div>
+			</form>
+			
+			<form>
+			<div style="position: absolute; bottom: 0; left: 0; text-align:left;">
+					<input type="button" VALUE="🛈 About"
+					onclick="window.location.href='/about'" > 
+			</div>			
 		</form>
 
 	</body>
