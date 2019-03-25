@@ -4,7 +4,29 @@
 
     <head>
         <title>About</title>
-        <link href="styles.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html 
+{
+  height: 100%;
+}
+
+/* parallax code taken from "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_parallax_percent" , adapted for our current website. 
+ this reference also includes the 7th line in this file. */
+
+.parallax {
+  background-image: ('/oakScroll.jpg')
+
+  height: 100%; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ^^^^^^^^^^ */
+</style>
     </head>
 
     <body>
@@ -15,7 +37,7 @@
                 <li><a href="/about">About</a></li>
             </ul>
         </div>
-            
+            <div class="parallax"></div>
         <img src="/logo.png" width="200px" height= "200px" alt="Oak Inc. logo" class="center"> 
         <section>
             <p>We are a group of six students, from three different degrees. This website and the application that have been created are part 
@@ -32,6 +54,7 @@
                 HTML, optimal data storage concepts, CSS and technical aspects of the NFC tags. We have improved our SQLite, Javascript
                 and Software Development Lifecycle skills. Working as a team also further improved our soft skills such as communication,
                 time management and teamworking.</p>
+                <div class="parallax"></div>
             <p>Our team members are:</p>
             <ul class="namelist">
                 <li>Jacob Stenson</li>
