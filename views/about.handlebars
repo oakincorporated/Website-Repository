@@ -6,16 +6,20 @@
         <title>About</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body, html 
-{
+body, html {
   height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
 }
 
 /* parallax code taken from "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_parallax_percent" , adapted for our current website. 
  this reference also includes the 7th line in this file. */
 
 .parallax {
-  background-image: ('/oakScroll.jpg')
+  background-image: url("/oakScroll.jpg");
 
   height: 100%; 
 
@@ -24,6 +28,52 @@ body, html
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+.nav ul {
+  position: relative; 
+  top: 0 px;
+  margin: 10px; 
+  padding: 10px;
+  list-style-type: none;
+  margin: 10; 
+  padding: 0; 
+  overflow: hidden;
+  background-color: #cdddf7;
+  border-bottom: 1px solid slategrey;
+  border-top: 1px solid slategray;
+
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  display: block;
+  color:black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  background-color: #8cb7ff;
+}
+
+.msg {
+  border-bottom: 1px solid black;
+  background: white;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  padding: 1em;
+}
+
+.namelist {
+    list-style: none;
+}
+
 
 /* ^^^^^^^^^^ */
 </style>
