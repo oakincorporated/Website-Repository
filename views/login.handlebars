@@ -4,6 +4,8 @@
 <html lang="en">
 	<head>
 		<title>Log In</title>
+		<meta name="description" content="A login page for the user to log into the attendance system.">
+		<meta name="author" content="Grace Clamp">
 		<link href="styles.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
@@ -13,7 +15,7 @@
 		{{/if}}
 		<fieldset>
 			<form action="/login" method="post">
-				<p><label>Username<br><input type="text" name="user" placeholder="Your username" maxlength="20" value="{{user}}" 
+				<p><label>Username<br><input type="text" name="user" placeholder="Your username" maxlength="20" value="{{user}}"
 				autofocus oninput="this.value=this.value.toLowerCase()" required></label></p>
 				<p><label>Password<br><input type="password" name="pass" placeholder="Your password" value="" required></label></p>
 				<p><label><input type="submit" value="Log in"></label></p>

@@ -4,26 +4,27 @@
 <html lang="en">
 	<head>
 		<title>Home</title>
+		<meta name="description" content="Home page, displaying attendance data to a logged in user.">
+		<meta name="author" content="Grace Clamp">
 		<link href="styles.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
-		<div class="nav">
+		<nav>
 			<ul>
 				<li><a href="/logout">Logout</a></li>
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 			</ul>
-		</div>
+		</nav>
 		{{#if msg}}
  			<p class="msg">{{msg}}</p>
 		{{/if}}
 
 		<p>Please view details of your attendance so far below:</p>
 
-
-		<h3>Total Classes: {{profile.total_classes}}</h3>
-		<h3>Present: {{profile.present}}</h3>
-		<h3>Late: {{profile.late}}</h3>
-		<h3>Absent: {{profile.absent}}</h3>
+		<h1>Total Classes: {{profile.total_classes}}</h1>
+		<h1>Present: {{profile.present}}</h1>
+		<h1>Late: {{profile.late}}</h1>
+		<h1>Absent: {{profile.absent}}</h1>
 		</body>
 </html>
