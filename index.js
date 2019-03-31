@@ -66,8 +66,7 @@ router.post('/login', async ctx => {
 		const record = await db.get(`SELECT pass FROM users WHERE user = "${body.user}";`)
 		await db.close()
 		// CHECKING IF THE PASSWORD ENTERED IS THE SAME AS STORED WITHIN THE DATABASE
-		if (body.pass!==record.pass) return ctx.redirect(`/login?user=${body.user}&msg=Invalid%20password,%20please%20t
-		ry%20again.`)
+		if (body.pass!==record.pass) return ctx.redirect(`/login?user=${body.user}&msg=Invalid%20password,%20please%20try%20again.`)
 		// SETTING SESSION COOKIES
 		// SESSION.AUTHORISED - THE USER SESSION
 		// SESSION.USER - THE USERNAME OF THE USER
