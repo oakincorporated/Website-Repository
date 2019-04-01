@@ -53,7 +53,7 @@ router.get('/login', async ctx => {
 	await ctx.render('login', data)
 })
 
-// THIS ROUTE IS TRIGGERED AFTER A USER SUCCESFULLY LOGS IN
+
 router.post('/login', async ctx => {
 	try {
 		const body = ctx.request.body
