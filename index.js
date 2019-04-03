@@ -26,7 +26,7 @@ const port = 8080
 router.get('/', async ctx => {
 	try {
 		const data = {}
-		// IF THE USER IS NOT LOGGED IN REDIRECT
+		// IF THE USER IS NOT LOGGED IN REDIRECT TO LOGIN PAGE TO THE LOGIN
 		if(ctx.session.authorised !== true ) return ctx.redirect('/login?msg=You%20need%20to%20log%20in.')
 		if(ctx.query.msg) data.msg = ctx.query.msg
 		if(ctx.session.user) data.user = ctx.query.user
@@ -46,6 +46,7 @@ router.get('/', async ctx => {
 	}
 })
 
+// LOGIN ROUTE WHERE A LOGIN PAGE IS DISPLAYED TO A USER
 router.get('/login', async ctx => {
 	const data = {}
 	if(ctx.query.msg) data.msg = ctx.query.msg
@@ -58,9 +59,9 @@ router.post('/login', async ctx => {
 	try {
 		const body = ctx.request.body
 		const db = await sqlite.open('./realworld.db')
-		// CHECKING IF THE USERNAME EXISTS
+		// CHECKING IF THE USERNAME EXISTS IN THE DB
 		const records = await db.get(`SELECT count(student_id) AS count FROM users WHERE user="${body.user}";`)
-		// IF USERNAME DOESNT EXIST DISPLAYING A MESSAGE TO THE USER
+		// IF USERNAME DOESNT EXIST IN THE DB DISPLAYING A MESSAGE TO THE USER
 		if(!records.count) ctx.redirect('/login?msg=Invalid%20username,%20please%20try%20again.')
 		// RETRIVING PASSWORD FROM THE DATABASE
 		const record = await db.get(`SELECT pass FROM users WHERE user = "${body.user}";`)
@@ -82,14 +83,6 @@ router.post('/login', async ctx => {
 // RENDERING THE ABOUT PAGE
 router.get('/about', async ctx => await ctx.render('about'))
 
-router.post('/about', async ctx => {
-	try {
-		const body = ctx.request.body
-		console.log(body)
-	} catch (err) {
-		await ctx.render('error', {message: err.message})
-	}
-})
 
 // THIS ROUTE IS TRIGGERED WHEN THE USER LOGS OUT
 router.get('/logout', async ctx => {

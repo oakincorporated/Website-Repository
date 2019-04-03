@@ -11,11 +11,11 @@ li {
 
 nav ul {
   position: relative;
-  top: 0 px;
+  top: 0;
   margin: 10px;
   padding: 10px;
   list-style-type: none;
-  margin: 10;
+  margin: 10px;
   padding: 0;
   overflow: hidden;
   background-color: #cdddf7;
